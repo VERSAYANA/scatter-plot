@@ -23,7 +23,7 @@ const svg = d3
   .select('body')
   .append('svg')
   .attr('width', svgWidth)
-  .attr('height', svgHeight)
+  .attr('height', svgHeight + 25)
   .style('background-color', 'bisque');
 
 const drawSvg = (dataset) => {
@@ -53,4 +53,11 @@ const drawSvg = (dataset) => {
     .attr('r', circleRadius)
     .attr('cx', (d) => xScale(d.Year))
     .attr('cy', (d) => yScale(d.Seconds * 1000));
+
+  const xAxis = d3.axisBottom(xScale).tickFormat(d3.format('d'));
+  svg
+    .append('g')
+    .attr('id', 'x-axis')
+    .attr('transform', `translate(0, ${svgHeight})`)
+    .call(xAxis);
 };
