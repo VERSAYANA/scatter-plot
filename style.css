@@ -1,8 +1,15 @@
-html,
+html {
+  height: 100%;
+}
 body {
+  --accent-color: #00b0ff;
+
+  height: 100%;
   margin: 0;
   padding: 0;
-  --accent-color: #00b0ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .dot {
   opacity: 0.8;
