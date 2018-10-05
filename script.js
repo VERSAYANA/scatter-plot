@@ -17,6 +17,8 @@ fetch(url)
 
 const svgWidth = 800;
 const svgHeight = 500;
+const circleRadius = 8;
+
 const svg = d3
   .select('body')
   .append('svg')
@@ -33,14 +35,14 @@ const drawSvg = (dataset) => {
   const yScale = d3
     .scaleTime()
     .domain(d3.extent(time, (t) => t))
-    .range([0, svgHeight]);
+    .range([circleRadius, svgHeight - circleRadius]);
 
   const yearMin = d3.min(dataset, (d) => d.Year);
   const yearMax = d3.max(dataset, (d) => d.Year);
   const xScale = d3
     .scaleLinear()
     .domain([yearMin, yearMax])
-    .range([0, svgWidth]);
+    .range([circleRadius, svgWidth - circleRadius]);
 
   svg
     .selectAll('circle')
@@ -48,7 +50,7 @@ const drawSvg = (dataset) => {
     .enter()
     .append('circle')
     .attr('class', 'dot')
-    .attr('r', 8)
+    .attr('r', circleRadius)
     .attr('cx', (d) => xScale(d.Year))
     .attr('cy', (d) => yScale(d.Seconds * 1000));
 };
