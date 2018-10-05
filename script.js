@@ -17,7 +17,7 @@ fetch(url)
 
 const svgWidth = 800;
 const svgHeight = 500;
-const circleRadius = 8;
+const circleRadius = 5;
 const xAxisSpace = 40;
 const yAxisSpace = 25;
 
