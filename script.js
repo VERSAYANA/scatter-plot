@@ -22,7 +22,7 @@ const xAxisSpace = 40;
 const yAxisSpace = 25;
 
 const svg = d3
-  .select('body')
+  .select('#container')
   .append('svg')
   .attr('width', svgWidth + xAxisSpace)
   .attr('height', svgHeight + yAxisSpace)
@@ -30,7 +30,7 @@ const svg = d3
   .style('background-color', 'bisque');
 
 const tooltip = d3
-  .select('body')
+  .select('#container')
   .append('div')
   .attr('id', 'tooltip');
 
