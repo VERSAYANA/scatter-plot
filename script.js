@@ -25,12 +25,30 @@ const svg = d3
   .style('background-color', 'bisque');
 
 const drawSvg = (dataset) => {
+  console.log(dataset);
+
+  const time = dataset.map((d) => new Date(d.Seconds * 1000));
+  console.log(time);
+
+  const yScale = d3
+    .scaleTime()
+    .domain(d3.extent(time, (t) => t))
+    .range([0, svgHeight]);
+
   const yearMin = d3.min(dataset, (d) => d.Year);
   const yearMax = d3.max(dataset, (d) => d.Year);
-  const yScale = d3
+  const xScale = d3
     .scaleLinear()
     .domain([yearMin, yearMax])
     .range([0, svgWidth]);
 
-  const xScale = d3.extent(dataset, (d) => d3.Time);
+  svg
+    .selectAll('circle')
+    .data(dataset)
+    .enter()
+    .append('circle')
+    .attr('class', 'dot')
+    .attr('r', 8)
+    .attr('cx', (d) => xScale(d.Year))
+    .attr('cy', (d) => yScale(d.Seconds * 1000));
 };
