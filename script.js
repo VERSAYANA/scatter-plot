@@ -64,12 +64,15 @@ const drawSvg = (dataset) => {
     .attr('transform', `translate(${xAxisSpace}, 0)`)
     .on('mouseover', (d) => {
       tooltip
-        .style('opacity', 1)
+        .style('display', 'block')
         .style('left', xScale(d.Year) + xAxisSpace + 'px')
-        .style('top', yScale(d.Seconds * 1000) + 'px');
+        .style('top', yScale(d.Seconds * 1000) + 'px')
+        .html(
+          `<p>Name: ${d.Name}</p><p>Time: ${d.Time}</p><p>Year: ${d.Year}</p>`
+        );
     })
     .on('mouseout', (d) => {
-      tooltip.style('opacity', 0);
+      tooltip.style('display', 'none');
     });
 
   const xAxis = d3.axisBottom(xScale).tickFormat(d3.format('d'));
