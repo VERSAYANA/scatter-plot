@@ -26,6 +26,7 @@ body {
 }
 #tooltip {
   display: none;
+  min-width: 125px;
   background-color: greenyellow;
   position: absolute;
   font-size: 12px;
