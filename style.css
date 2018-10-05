@@ -13,8 +13,13 @@ body {
 }
 .dot {
   opacity: 0.8;
-  fill: var(--accent-color);
   stroke: rgba(0, 0, 0, 0.87);
+}
+.clean {
+  fill: blue;
+}
+.allegated {
+  fill: red;
 }
 #container {
   position: relative;

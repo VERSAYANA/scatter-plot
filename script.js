@@ -57,6 +57,9 @@ const drawSvg = (dataset) => {
     .enter()
     .append('circle')
     .attr('class', 'dot')
+    .attr('class', (d) => {
+      return d.Doping ? 'allegated' : 'clean';
+    })
     .attr('r', circleRadius)
     .attr('cx', (d) => xScale(d.Year))
     .attr('cy', (d) => yScale(d.Seconds * 1000))
