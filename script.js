@@ -26,9 +26,11 @@ const svg = d3
 
 const drawSvg = (dataset) => {
   const yearMin = d3.min(dataset, (d) => d.Year);
-  const yearMax = d3.max(dataset, (d) => d3.Year);
+  const yearMax = d3.max(dataset, (d) => d.Year);
   const yScale = d3
     .scaleLinear()
     .domain([yearMin, yearMax])
     .range([0, svgWidth]);
+
+  const xScale = d3.extent(dataset, (d) => d3.Time);
 };
