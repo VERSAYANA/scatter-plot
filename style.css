@@ -1,0 +1,11 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  --accent-color: #00b0ff;
+}
+.dot {
+  opacity: 0.8;
+  fill: var(--accent-color);
+  stroke: rgba(0, 0, 0, 0.87);
+}
