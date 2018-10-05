@@ -22,7 +22,7 @@ const circleRadius = 8;
 const svg = d3
   .select('body')
   .append('svg')
-  .attr('width', svgWidth)
+  .attr('width', svgWidth + 40)
   .attr('height', svgHeight + 25)
   .style('background-color', 'bisque');
 
@@ -52,12 +52,20 @@ const drawSvg = (dataset) => {
     .attr('class', 'dot')
     .attr('r', circleRadius)
     .attr('cx', (d) => xScale(d.Year))
-    .attr('cy', (d) => yScale(d.Seconds * 1000));
+    .attr('cy', (d) => yScale(d.Seconds * 1000))
+    .attr('transform', `translate(40, 0)`);
 
   const xAxis = d3.axisBottom(xScale).tickFormat(d3.format('d'));
   svg
     .append('g')
     .attr('id', 'x-axis')
-    .attr('transform', `translate(0, ${svgHeight})`)
+    .attr('transform', `translate(40, ${svgHeight})`)
     .call(xAxis);
+
+  const yAxis = d3.axisLeft(yScale).tickFormat(d3.timeFormat('%M:%S'));
+  svg
+    .append('g')
+    .attr('id', 'y-axis')
+    .attr('transform', `translate(40, 0)`)
+    .call(yAxis);
 };
