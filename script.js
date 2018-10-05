@@ -26,7 +26,13 @@ const svg = d3
   .append('svg')
   .attr('width', svgWidth + xAxisSpace)
   .attr('height', svgHeight + yAxisSpace)
+  .attr('id', 'svg')
   .style('background-color', 'bisque');
+
+const tooltip = d3
+  .select('body')
+  .append('div')
+  .attr('id', 'tooltip');
 
 const drawSvg = (dataset) => {
   console.log(dataset);
@@ -55,7 +61,13 @@ const drawSvg = (dataset) => {
     .attr('r', circleRadius)
     .attr('cx', (d) => xScale(d.Year))
     .attr('cy', (d) => yScale(d.Seconds * 1000))
-    .attr('transform', `translate(${xAxisSpace}, 0)`);
+    .attr('transform', `translate(${xAxisSpace}, 0)`)
+    .on('mouseover', (d) => {
+      tooltip.style('opacity', 1);
+    })
+    .on('mouseout', (d) => {
+      tooltip.style('opacity', 0);
+    });
 
   const xAxis = d3.axisBottom(xScale).tickFormat(d3.format('d'));
   svg
