@@ -8,15 +8,12 @@ body {
   opacity: 0.8;
   fill: var(--accent-color);
   stroke: rgba(0, 0, 0, 0.87);
-  /* z-index: 10; */
 }
 #container {
   position: relative;
 }
 #tooltip {
   display: none;
-  /* height: 50px;
-  width: 50px; */
   background-color: greenyellow;
   position: absolute;
   font-size: 12px;

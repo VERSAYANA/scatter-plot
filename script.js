@@ -26,8 +26,7 @@ const svg = d3
   .append('svg')
   .attr('width', svgWidth + xAxisSpace)
   .attr('height', svgHeight + yAxisSpace)
-  .attr('id', 'svg')
-  .style('background-color', 'bisque');
+  .attr('id', 'svg');
 
 const tooltip = d3
   .select('#container')
