@@ -63,7 +63,10 @@ const drawSvg = (dataset) => {
     .attr('cy', (d) => yScale(d.Seconds * 1000))
     .attr('transform', `translate(${xAxisSpace}, 0)`)
     .on('mouseover', (d) => {
-      tooltip.style('opacity', 1);
+      tooltip
+        .style('opacity', 1)
+        .style('left', xScale(d.Year) + xAxisSpace + 'px')
+        .style('top', yScale(d.Seconds * 1000) + 'px');
     })
     .on('mouseout', (d) => {
       tooltip.style('opacity', 0);

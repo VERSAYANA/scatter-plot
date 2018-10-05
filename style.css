@@ -9,12 +9,13 @@ body {
   fill: var(--accent-color);
   stroke: rgba(0, 0, 0, 0.87);
 }
+#container {
+  position: relative;
+}
 #tooltip {
   opacity: 0;
   height: 50px;
   width: 50px;
   background-color: greenyellow;
-}
-#container {
-  position: relative;
+  position: absolute;
 }
