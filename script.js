@@ -18,12 +18,14 @@ fetch(url)
 const svgWidth = 800;
 const svgHeight = 500;
 const circleRadius = 8;
+const xAxisSpace = 40;
+const yAxisSpace = 25;
 
 const svg = d3
   .select('body')
   .append('svg')
-  .attr('width', svgWidth + 40)
-  .attr('height', svgHeight + 25)
+  .attr('width', svgWidth + xAxisSpace)
+  .attr('height', svgHeight + yAxisSpace)
   .style('background-color', 'bisque');
 
 const drawSvg = (dataset) => {
@@ -53,19 +55,19 @@ const drawSvg = (dataset) => {
     .attr('r', circleRadius)
     .attr('cx', (d) => xScale(d.Year))
     .attr('cy', (d) => yScale(d.Seconds * 1000))
-    .attr('transform', `translate(40, 0)`);
+    .attr('transform', `translate(${xAxisSpace}, 0)`);
 
   const xAxis = d3.axisBottom(xScale).tickFormat(d3.format('d'));
   svg
     .append('g')
     .attr('id', 'x-axis')
-    .attr('transform', `translate(40, ${svgHeight})`)
+    .attr('transform', `translate(${xAxisSpace}, ${svgHeight})`)
     .call(xAxis);
 
   const yAxis = d3.axisLeft(yScale).tickFormat(d3.timeFormat('%M:%S'));
   svg
     .append('g')
     .attr('id', 'y-axis')
-    .attr('transform', `translate(40, 0)`)
+    .attr('transform', `translate(${xAxisSpace}, 0)`)
     .call(yAxis);
 };
