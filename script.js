@@ -15,6 +15,15 @@ fetch(url)
     console.log('Fetch error:', err);
   });
 
+const svgWidth = 800;
+const svgHeight = 500;
+const svg = d3
+  .select('body')
+  .append('svg')
+  .attr('width', svgWidth)
+  .attr('height', svgHeight)
+  .style('background-color', 'blue');
+
 const drawSvg = (dataset) => {
   console.log(dataset);
 };
