@@ -22,8 +22,13 @@ const svg = d3
   .append('svg')
   .attr('width', svgWidth)
   .attr('height', svgHeight)
-  .style('background-color', 'blue');
+  .style('background-color', 'bisque');
 
 const drawSvg = (dataset) => {
-  console.log(dataset);
+  const yearMin = d3.min(dataset, (d) => d.Year);
+  const yearMax = d3.max(dataset, (d) => d3.Year);
+  const yScale = d3
+    .scaleLinear()
+    .domain([yearMin, yearMax])
+    .range([0, svgWidth]);
 };
