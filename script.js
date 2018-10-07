@@ -63,12 +63,15 @@ const drawSvg = (dataset) => {
     .attr('r', circleRadius)
     .attr('cx', (d) => xScale(d.Year))
     .attr('cy', (d) => yScale(d.Seconds * 1000))
+    .attr('data-xvalue', (d) => d.Year)
+    .attr('data-yvalue', (d) => new Date(d.Seconds * 1000))
     .attr('transform', `translate(${xAxisSpace}, 0)`)
     .on('mouseover', (d) => {
       tooltip
         .style('display', 'block')
         .style('left', xScale(d.Year) + xAxisSpace + 'px')
         .style('top', yScale(d.Seconds * 1000) + 'px')
+        .attr('data-year', d.Year)
         .html(
           `<p>Name: ${d.Name}</p><p>Time: ${d.Time}</p><p>Year: ${d.Year}</p>`
         );
