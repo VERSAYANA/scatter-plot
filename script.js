@@ -15,7 +15,7 @@ fetch(url)
     console.log('Fetch error:', err);
   });
 
-const svgWidth = 800;
+const svgWidth = 750;
 const svgHeight = 450;
 const circleRadius = 5;
 const xAxisSpace = 40;
