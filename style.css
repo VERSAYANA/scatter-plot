@@ -8,10 +8,14 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   --clean: #00e5ff;
   --allegated: #f50057;
+}
+h1 {
+  font-size: 20px;
 }
 .dot {
   opacity: 0.8;
@@ -44,6 +48,8 @@ body {
 }
 #container {
   position: relative;
+  display: flex;
+  flex-direction: row-reverse;
 }
 #tooltip {
   display: none;
